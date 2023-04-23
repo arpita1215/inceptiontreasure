@@ -1,21 +1,39 @@
-/** @format */
+// /** @format */
+// const mongoose = require("mongoose");
+
+// const DB = process.env.DATABASE;
+
+
+
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//     // useCreateIndex: true,
+//     // useUnifiedTopology: true,
+//     // useFindAndModify: false,
+
+//   })
+//   .then(() => {
+//     console.log(`conncetion successfull`);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
 const mongoose = require("mongoose");
 
-const DB = process.env.DATABASE;
+const connectDB =async()=>{
+    try {
+       await mongoose.connect(process.env.DATABASE, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("mongodb is connected");
+    } catch (error) {
+       console.log(error); 
+       console.log("Database is not connected");
+    }
 
+};
 
-
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    // useCreateIndex: true,
-    // useUnifiedTopology: true,
-    // useFindAndModify: false,
-
-  })
-  .then(() => {
-    console.log(`conncetion successfull`);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+module.exports = connectDB;

@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "server": "node app.js",
+    "server": "nodemon app.js",
     "build": "npm install && cd client && npm install && npm run build",
     "client": "npm start --prefix client",
     "server-install": "npm install",
     "clientinstall": "npm install --prefix client",
-    "dev": "npx concurrently \"npm run server\" \"npm install dotenv\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --force --prefix client && npm run build --prefix client"
   },
   "keywords": [],

@@ -11,7 +11,6 @@
     "server-install": "npm install",
     "clientinstall": "npm install --prefix client",
     "dev": "npx concurrently \"npm run server\" \"npm install dotenv\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install --force && npm run build",
     "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --force --prefix client && npm run build --prefix client"
   },
   "keywords": [],

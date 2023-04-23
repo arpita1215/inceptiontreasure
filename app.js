@@ -11,7 +11,7 @@ dotenv.config({ path: "./config.env" });
 // require("./db/conn");
 const connectDB = require("./db/conn");
 
-app.use(express.json());
+
 // we link the router file to make our route easy
 app.use(require("./route/auth"));
 

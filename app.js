@@ -10,7 +10,7 @@ dotenv.config({ path: "./config.env" });
 
 // require("./db/conn");
 const connectDB = require("./db/conn");
-
+require("dotenv").config();
 
 // we link the router file to make our route easy
 app.use(require("./route/auth"));
@@ -36,20 +36,12 @@ app.get("/signup", (req, res) => {
 //   app.use(express.static("client/build"));
 // }
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(
-      path.resolve(__dirname + "/client/build/index.html"),
-      function (err) {
-        if (err) {
-          console.log(err);
-        }
-      }
-    );
-  });
+if (process.env.NODE_ENV=== 'production') {
+  app.use(express.static('client/build'));
+  app.get('*',(req,res) => {
+      res.sendFile(path.join(__dirname , 'client' , 'build' , 'index.html'))
+  })
 }
-
 
 
 app.listen(PORT, () => {
